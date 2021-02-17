@@ -34,7 +34,6 @@ router.post('/publish', async (ctx) => {
             subscribers[id].status = 200;
             subscribers[id].res.end(message);
         }
-        subscribers = {};
         ctx.status = 200;
         ctx.res.end();
     }
