@@ -48,6 +48,7 @@ describe('authentication/oauth', () => {
     it('функция authenticate выбрасывает ошибку если email невалидный', (done) => {
       authenticate('vkontakte', 'emailemailemail', 'name', (err, user) => {
         expect(err).to.not.to.be.null;
+
         expect(err.name).to.equal('ValidationError');
         expect(err.errors.email.message).to.equal('Некорректный email.');
         done();
