@@ -60,9 +60,7 @@ router.use(async (ctx, next) => {
         await session.save();
         ctx.user = session.user;
     } else {
-        ctx.status = 401
-        ctx.body = { error: 'Неверный аутентификационный токен' };
-        return;
+        ctx.throw(401, 'Неверный аутентификационный токен');
     }
 
     return next();
